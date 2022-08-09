@@ -51,6 +51,6 @@ busqueda.addEventListener("click", (e)=>{
 });
 
 function filtrarProd(inputProd){
-    const filtrar = listaProd.filter((producto)=>producto.nombre.indexOf(inputProd)!==-1);
+    const filtrar = listaProd.filter((producto)=>producto.nombre.toUpperCase().indexOf(inputProd.toUpperCase())!==-1);
     cargarProd(filtrar);
 };
