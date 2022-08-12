@@ -1,3 +1,7 @@
+const carrito = []
+
+carrito.length === 0 && alert("El carrito esta vacio, animate a comprar tu juego favorito!");
+
 class Producto {
     constructor(id, nombre, precio, categoria, imagen) {
         this.id = id;
@@ -54,3 +58,4 @@ function filtrarProd(inputProd){
     const filtrar = listaProd.filter((producto)=>producto.nombre.toUpperCase().indexOf(inputProd.toUpperCase())!==-1);
     cargarProd(filtrar);
 };
+

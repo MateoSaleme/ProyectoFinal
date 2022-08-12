@@ -140,13 +140,6 @@ footer .box_copyrights hr {
   font-weight: 700;
   font-family: "Source Sans Pro", sans-serif;
 }
-#trending-items .section .content .card-titles, #next-games .section .content .card-titles {
-  text-align: center;
-  font-size: 30px;
-  margin: 0;
-  font-weight: 700;
-  font-family: "Source Sans Pro", sans-serif;
-}
 #trending-items .section .content h6, #next-games .section .content h6 {
   font-size: 24px;
   text-align: center;
