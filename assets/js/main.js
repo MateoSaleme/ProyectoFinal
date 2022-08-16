@@ -38,7 +38,6 @@ const cargarProd = (productos)=>{
     const divProd=document.getElementById("productos")
     divProd.innerHTML="";
     productos.forEach((producto)=>{
-       
         divProd.innerHTML+=`
         <div class="product-item">
             <img src=${producto.imagen} alt="">
@@ -72,7 +71,7 @@ function filtrarProd(inputProd){
 
 //carrito de compras
 
-class carritoo {
+class ProdCarro {
     constructor(id,cantidad) {
         this.id = id;
         this.cantidad = cantidad;
@@ -102,32 +101,28 @@ for (let i = 1; i <= listaProd.length; i++) {
         let cantidad = document.getElementById("prodNr"+i).textContent;
         e.preventDefault();
         agregarCarrito(id,cantidad);
+        mostrarPrecio();
     });
-    
 };
 
 function agregarCarrito(id,cantidad) {
-    carrito.push(new carritoo(id,cantidad));
+    carrito.push(new ProdCarro(id,cantidad));
     console.log(carrito)
 }
-
 
 function mostrarPrecio(){
     let preciototal=0;
     carrito.forEach(carr => {
         listaProd.forEach(prod => {
-            if (carr.id==prod.id) {
-                
+            if (carr.id==prod.id) {   
                 preciototal+=carr.cantidad*prod.precio;
+                document.getElementById("precioTotal").textContent = preciototal;
                 console.log("Precio total:"+preciototal);
                 console.log(carr.id,carr.cantidad,prod.nombre,prod.precio);
-            }
-            
+            }     
         });        
     });
-
 };
-mostrarPrecio();
 
 
 
