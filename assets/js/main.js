@@ -34,20 +34,22 @@ const listaProd = [
 //cargando los productos en html
 
 const cargarProd = (productos)=>{
+    
     const divProd=document.getElementById("productos")
     divProd.innerHTML="";
     productos.forEach((producto)=>{
+       
         divProd.innerHTML+=`
         <div class="product-item">
             <img src=${producto.imagen} alt="">
-            <p class="text-danger" >Cod.#<span id="itemId">${producto.id}</span></p>
+            <p class="text-danger" >Cod.#<span id="itemId${producto.id}">${producto.id}</span></p>
             <h6>${producto.nombre}</h6>
             <p class="text-danger">${producto.precio} ARS$</p>
             <div id="addToCarritoBtn" class="cant-btn text-center">
-                <button type="button" class="btn btn-secondary mb-1 mt-1" onclick="restarProd${producto.id}">-</button>
+                <button type="button" class="btn btn-secondary mb-1 mt-1" id="restarProd${producto.id}">-</button>
                 <span class="mx-4 p-1" id="prodNr${producto.id}">1</span>
-                <button type="button" class="btn btn-secondary mb-1 mt-1" onclick="sumarProd${producto.id}">+</button>
-                <button type="button" class="buy-2 btn btn-danger buy" id="buybtn">COMPRAR</button>
+                <button type="button" class="btn btn-secondary mb-1 mt-1" id="sumarProd${producto.id}">+</button>
+                <button type="button" class="buy-2 btn btn-danger buy" id="buybtn${producto.id}">COMPRAR</button>
             </div>
         </div>`
     })};
@@ -69,33 +71,63 @@ function filtrarProd(inputProd){
 };
 
 //carrito de compras
-let cantidad = document.getElementById("prodNr")
-let id = document.getElementById("itemId")
-let carrito = [
-    [id, cantidad]
-]
 
-const agregarProd = document.getElementById("buybtn");
-agregarProd.addEventListener("click", (e)=>{
-    e.preventDefault();
-    agregarCarrito();
-});
+class carritoo {
+    constructor(id,cantidad) {
+        this.id = id;
+        this.cantidad = cantidad;
+    }
+}
 
+const carrito=[];
 
-function agregarCarrito() {
-    carrito.push({id, cantidad})
+for (let i = 1; i <= listaProd.length; i++) {
+    const agregarProd = document.getElementById("buybtn"+i);
+    const sumarProd = document.getElementById("sumarProd"+i);
+    const restarProd = document.getElementById("restarProd"+i);
+    sumarProd.addEventListener("click", (e)=>{
+        let cantidad=document.getElementById("prodNr"+i).textContent;
+        cantidad=parseInt(cantidad);
+        cantidad+=1;
+        document.getElementById("prodNr"+i).textContent=cantidad;
+    });
+    restarProd.addEventListener("click", (e)=>{
+        let cantidad=document.getElementById("prodNr"+i).textContent;
+        cantidad=parseInt(cantidad);
+        cantidad-=1;
+        document.getElementById("prodNr"+i).textContent=cantidad;
+    });
+    agregarProd.addEventListener("click", (e)=>{
+        let id = document.getElementById("itemId"+i).textContent;
+        let cantidad = document.getElementById("prodNr"+i).textContent;
+        e.preventDefault();
+        agregarCarrito(id,cantidad);
+    });
+    
+};
+
+function agregarCarrito(id,cantidad) {
+    carrito.push(new carritoo(id,cantidad));
     console.log(carrito)
 }
 
-agregarProd.addEventListener("click", )
 
-//cantidad de productos
-
-function sumarProd(){
+function mostrarPrecio(){
+    let preciototal=0;
+    carrito.forEach(carr => {
+        listaProd.forEach(prod => {
+            if (carr.id==prod.id) {
+                
+                preciototal+=carr.cantidad*prod.precio;
+                console.log("Precio total:"+preciototal);
+                console.log(carr.id,carr.cantidad,prod.nombre,prod.precio);
+            }
+            
+        });        
+    });
 
 };
+mostrarPrecio();
 
-function restarProd() {
 
-};
 
