@@ -348,6 +348,13 @@ footer .box_copyrights hr {
   text-decoration: none;
   margin-bottom: 1px;
 }
+.wrap .store-wrapper .products-list .product-item .cant-btn {
+  background: #ffffff;
+  justify-content: space-between;
+}
+.wrap .store-wrapper .products-list .product-item .cant-btn input {
+  font-size: small;
+}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------PAGINATION--------------------------------------------------------------------------------------------------*/

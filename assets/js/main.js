@@ -1,6 +1,4 @@
-const carrito = []
-
-carrito.length === 0 && alert("El carrito esta vacio, animate a comprar tu juego favorito!");
+// creando productos
 
 class Producto {
     constructor(id, nombre, precio, categoria, imagen) {
@@ -11,6 +9,8 @@ class Producto {
         this.imagen = imagen;
     }
 }
+
+//listando productos
 
 const listaProd = [
     new Producto(1, "Grand Theft Auto V", 600, "accion", "../assets/img/gtashop.jpg"),
@@ -31,6 +31,8 @@ const listaProd = [
     new Producto(16, "Ready Or Not", 899, "accion", "../assets/img/readyornotshop.jpg"),
 ]
 
+//cargando los productos en html
+
 const cargarProd = (productos)=>{
     const divProd=document.getElementById("productos")
     divProd.innerHTML="";
@@ -38,14 +40,21 @@ const cargarProd = (productos)=>{
         divProd.innerHTML+=`
         <div class="product-item">
             <img src=${producto.imagen} alt="">
-            <p class="text-danger">#${producto.id}</p>
+            <p class="text-danger" >Cod.#<span id="itemId">${producto.id}</span></p>
             <h6>${producto.nombre}</h6>
             <p class="text-danger">${producto.precio} ARS$</p>
-            <button type="button" class="buy-2 btn btn-danger" id="buybtn">COMPRAR</button>
+            <div id="addToCarritoBtn" class="cant-btn text-center">
+                <button type="button" class="btn btn-secondary mb-1 mt-1" onclick="restarProd${producto.id}">-</button>
+                <span class="mx-4 p-1" id="prodNr${producto.id}">1</span>
+                <button type="button" class="btn btn-secondary mb-1 mt-1" onclick="sumarProd${producto.id}">+</button>
+                <button type="button" class="buy-2 btn btn-danger buy" id="buybtn">COMPRAR</button>
+            </div>
         </div>`
     })};
 
 cargarProd(listaProd);
+
+//filtrado y busqueda de productos
 
 const busqueda = document.getElementById("btn-buscar");
 busqueda.addEventListener("click", (e)=>{
@@ -57,5 +66,36 @@ busqueda.addEventListener("click", (e)=>{
 function filtrarProd(inputProd){
     const filtrar = listaProd.filter((producto)=>producto.nombre.toUpperCase().indexOf(inputProd.toUpperCase())!==-1);
     cargarProd(filtrar);
+};
+
+//carrito de compras
+let cantidad = document.getElementById("prodNr")
+let id = document.getElementById("itemId")
+let carrito = [
+    [id, cantidad]
+]
+
+const agregarProd = document.getElementById("buybtn");
+agregarProd.addEventListener("click", (e)=>{
+    e.preventDefault();
+    agregarCarrito();
+});
+
+
+function agregarCarrito() {
+    carrito.push({id, cantidad})
+    console.log(carrito)
+}
+
+agregarProd.addEventListener("click", )
+
+//cantidad de productos
+
+function sumarProd(){
+
+};
+
+function restarProd() {
+
 };
 
