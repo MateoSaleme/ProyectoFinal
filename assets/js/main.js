@@ -1,3 +1,5 @@
+
+
 // creando productos
 
 class Producto {
@@ -94,7 +96,11 @@ for (let i = 1; i <= listaProd.length; i++) {
         let cantidad=document.getElementById("prodNr"+i).textContent;
         cantidad=parseInt(cantidad);
         if(cantidad<=1){
-            alert("No agregaste ningun producto de mas")
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No estas llevando ningun producto de más.',
+              })
         }else{
             cantidad-=1;
             document.getElementById("prodNr"+i).textContent=cantidad;
@@ -128,6 +134,8 @@ function mostrarPrecio(){
         });        
     });
 };
+
+
 
 
 
