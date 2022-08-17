@@ -69,7 +69,7 @@ function filtrarProd(inputProd){
     cargarProd(filtrar);
 };
 
-//carrito de compras
+//carrito de compras (made by fello)
 
 class ProdCarro {
     constructor(id,cantidad) {
@@ -93,8 +93,13 @@ for (let i = 1; i <= listaProd.length; i++) {
     restarProd.addEventListener("click", (e)=>{
         let cantidad=document.getElementById("prodNr"+i).textContent;
         cantidad=parseInt(cantidad);
-        cantidad-=1;
-        document.getElementById("prodNr"+i).textContent=cantidad;
+        if(cantidad<=1){
+            alert("No agregaste ningun producto de mas")
+        }else{
+            cantidad-=1;
+            document.getElementById("prodNr"+i).textContent=cantidad;
+        };
+        
     });
     agregarProd.addEventListener("click", (e)=>{
         let id = document.getElementById("itemId"+i).textContent;
