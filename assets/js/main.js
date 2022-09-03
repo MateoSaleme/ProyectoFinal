@@ -1,5 +1,4 @@
 
-
 // creando productos
 
 class Producto {
@@ -45,7 +44,7 @@ const cargarProd = (productos)=>{
             <img src=${producto.imagen} alt="">
             <p class="text-danger" >Cod.#<span id="itemId${producto.id}">${producto.id}</span></p>
             <h6>${producto.nombre}</h6>
-            <p class="text-danger">${producto.precio} ARS$</p>
+            <p class="text-danger" id="itemPrecio${producto.id}">${producto.precio}</p>
             <div id="addToCarritoBtn" class="cant-btn text-center">
                 <button type="button" class="btn btn-secondary mb-1 mt-1" id="restarProd${producto.id}">-</button>
                 <span class="mx-4 p-1" id="prodNr${producto.id}">1</span>
@@ -66,35 +65,42 @@ busqueda.addEventListener("click", (e)=>{
     filtrarProd(inputProd);
 });
 
-
+const inputProd = document.getElementById("input-buscar");
+inputProd.addEventListener("keydown", ()=>{
+    filtrarProd(inputProd.value);
+})
 
 function filtrarProd(inputProd){
     const filtrar = listaProd.filter((producto)=>producto.nombre.toUpperCase().indexOf(inputProd.toUpperCase())!==-1);
     cargarProd(filtrar);
 };
 
+
 //carrito de compras
 
 class ProdCarro {
-    constructor(id,cantidad) {
+    constructor(id,cantidad,precio) {
         this.id = id;
         this.cantidad = cantidad;
+        this.precio = precio;
     }
 }
 
-const carrito=[];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+console.log(carrito)
+mostrarPrecio();
 
 for (let i = 1; i <= listaProd.length; i++) {
     const agregarProd = document.getElementById("buybtn"+i);
     const sumarProd = document.getElementById("sumarProd"+i);
     const restarProd = document.getElementById("restarProd"+i);
-    sumarProd.addEventListener("click", (e)=>{
+    sumarProd.addEventListener("click", ()=>{
         let cantidad=document.getElementById("prodNr"+i).textContent;
         cantidad=parseInt(cantidad);
         cantidad+=1;
         document.getElementById("prodNr"+i).textContent=cantidad;
     });
-    restarProd.addEventListener("click", (e)=>{
+    restarProd.addEventListener("click", ()=>{
         let cantidad=document.getElementById("prodNr"+i).textContent;
         cantidad=parseInt(cantidad);
         if(cantidad<=1){
@@ -107,20 +113,28 @@ for (let i = 1; i <= listaProd.length; i++) {
             cantidad-=1;
             document.getElementById("prodNr"+i).textContent=cantidad;
         };
-        
     });
     agregarProd.addEventListener("click", (e)=>{
         let id = document.getElementById("itemId"+i).textContent;
         let cantidad = document.getElementById("prodNr"+i).textContent;
+        let precio = document.getElementById("itemPrecio"+i).textContent;
         e.preventDefault();
-        agregarCarrito(id,cantidad);
+        agregarCarrito(id,cantidad,precio);
         mostrarPrecio();
     });
 };
 
-function agregarCarrito(id,cantidad) {
-    carrito.push(new ProdCarro(id,cantidad));
-    console.log(carrito)
+function agregarCarrito(id,cantidad,precio) {
+    let prodencarrito = carrito.find(producto=>producto.id==id)
+    console.log(prodencarrito, id, cantidad, precio)
+    if(prodencarrito){
+        prodencarrito.cantidad=Number(cantidad)+Number(prodencarrito.cantidad);
+    }
+    else{
+        carrito.push(new ProdCarro(id,cantidad,precio));
+    }
+    console.log(carrito);
+    localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
 function mostrarPrecio(){
@@ -136,8 +150,3 @@ function mostrarPrecio(){
         });        
     });
 };
-
-
-
-
-

@@ -59,11 +59,11 @@
           <input class="form-control me-2" id="input-buscar" type="search" placeholder="Busqueda" aria-label="Search">
           <button class="btn btn-outline-danger" id="btn-buscar" type="submit">Buscar</button>
         </form>
-        <p class="text-light ms-4 me-2 mb-2 mb-lg-0">
-          Carrito 
+        <a href="./carrito.html"><p class="text-light ms-4 me-2 mb-2 mb-lg-0">
+          <span class="text-danger fw-bold">Carrito</span> 
           <br> 
           P/ <span id="precioTotal"></span> ARS$
-        </p>
+        </p></a>
         <a href="./carrito.html"><img src="../assets/img/carrito.png" class=" " alt="" height="40px" width="40px"></a>
       </div>
     </div>
@@ -77,7 +77,7 @@
       <div class="store-wrapper">
         <div class="category_list">
           <a href="" class="category_item item-active" >Todo</a>
-          <a href="" class="category_item" >Accion</a>
+          <a href="" class="category_item" id="actionBtn">Accion</a>
           <a href="" class="category_item" >Aventura</a>
           <a href="" class="category_item" >Deportes</a>
           <a href="" class="category_item" >Estrategia</a>
@@ -96,15 +96,15 @@
       <ul class="pagination justify-content-center">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true" class="text-dark">&laquo;</span>
+            <span aria-hidden="true" class="text-dark fw-bold">&laquo;</span>
           </a>
         </li>
-        <li class="page-item"><a class="page-link text-dark" href="./tienda.html">1</a></li>
-        <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-        <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+        <li class="page-item"><a class="page-link text-danger fw-bold" href="./tienda.html">1</a></li>
+        <li class="page-item"><a class="page-link text-danger fw-bold" href="#">2</a></li>
+        <li class="page-item"><a class="page-link text-danger fw-bold" href="#">3</a></li>
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true" class="text-dark">&raquo;</span>
+            <span aria-hidden="true" class="text-dark fw-bold">&raquo;</span>
           </a>
         </li>
       </ul>

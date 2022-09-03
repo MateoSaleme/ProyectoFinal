@@ -28,6 +28,27 @@ a{
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------SLIDER-IMG--------------------------------------------------------------------------------------------------*/
+
+.carousel{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(29, 29, 29);
+    .carousel-inner{
+        width: 95%;
+        border-radius: 7px;
+        transition: .5s;
+    }
+    .carousel-inner:hover{
+        opacity: 0.8;
+        transform: translate(0px, -4px);
+    }
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------FOOTER--------------------------------------------------------------------------------------------------*/
 
 footer{
@@ -94,6 +115,39 @@ footer{
 
 .shop-intro{
     margin-left: 50px;
+    margin-right: 50px;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    line-height: normal;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    text-align: left;
+    h3{
+        width: calc(100% - 100px);
+        padding: 0 8px 0 0;
+        flex-grow: 1;
+        line-height: 42px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    button{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    p{
+        margin-bottom: 10px;
+    }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -124,6 +178,7 @@ footer{
             transform: translate(0px, -8px);
         }
         .content{
+            position: relative;
             width: auto;
             margin: 40px;
             box-sizing: border-box;
@@ -174,7 +229,7 @@ footer{
                 margin-right: 26px;
                 li{
                     padding: 5px;
-                   .fa{
+                    .fa{
                         font-size: 26px;
                         transition: .4s;
                     }
@@ -182,11 +237,11 @@ footer{
                         padding-top: 5px;
                         font-size: 20px;
                     }
-
+    
                     .checked{
                         color: rgb(255, 146, 5);
                     }
-
+    
                     .fa:hover{
                         transform: scale(1.3);
                         transition: .6s;
@@ -197,17 +252,18 @@ footer{
     }
 }
 
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------OFFERT-BANNERS-(INICIO)--------------------------------------------------------------------------------------------------*/
 
 .offert-menu{
-    padding-top: 60px;
-    padding-bottom: 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .offert-menus{
-    padding-top: 60px;
-    padding-bottom: 110px;
+    margin-top: 60px;
+    margin-bottom: 110px;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -434,7 +490,16 @@ footer{
 	.products-list .product-item:nth-child(3n+1){
 		margin-left: 0px !important;
 	}
-    .content{
+
+    .swiper-button-next{
+        height: 560px !important;
+    }
+
+    .swiper-button-prev{
+        height: 560px !important;
+    }
+
+    .card{
         width: 30% !important;
         img{
             width: 70% !important;
@@ -464,7 +529,7 @@ footer{
 }
 
 @media screen and (max-width:750px){
-    .content{
+    .card{
         width: 35% !important;
     }
     .contact-wrap{
@@ -518,7 +583,7 @@ footer{
             font-size: 11px;
         }
     }
-    .content{
+    .card{
         width: 55% !important;
     }
     #logo-foot{
@@ -585,7 +650,7 @@ footer{
             font-size: 11px;
         }
     }
-    .content{
+    .card{
         width: 80% !important;
         h6{
             padding-bottom: 0px !important;
@@ -602,40 +667,6 @@ footer{
     }
 }
 
-.pre-btn {
-    left: 0;
-    transform: rotate(180deg);
-  }
-  
-  .nxt-btn {
-    right: 0;
-  }
-  
-  .pre-btn img,
-  .nxt-btn img {
-    opacity: 0.2;
-  }
-  
-  .pre-btn:hover img,
-  .nxt-btn:hover img {
-    opacity: 1;
-  }
-
-  .pre-btn,
-  .nxt-btn {
-    border: none;
-    width: 10vw;
-    height: 100%;
-    top: 0;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(248, 28, 28) 100%);
-    cursor: pointer;
-    z-index: 8;
-  }
-
   .buy-2{
     text-align: center;
     font-size: 10px;
@@ -647,3 +678,167 @@ footer{
     cursor: pointer;
     border-radius: 0px;
 }
+
+.slide-container{
+    width: 100%;
+    padding: 40px 0;
+    background-image: url(../img/backgroundsection2.jpg);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    .slide-content{
+        margin: 0 40px;
+        overflow: hidden;
+        border-radius: 25px;
+        .card-wrapper{
+            display: flex;
+            flex-wrap: no-wrap;
+            width: 1340px !important;
+           .card{
+                position: relative;
+                width: 20% !important;
+                margin: 40px;
+                box-sizing: border-box !important;
+                text-align: center;
+                align-items: center;
+                border-radius: 10px;
+                cursor: pointer;
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
+                transition: .4s;
+                background: white;
+                img{
+                    width: 80%;
+                }
+                .card-title{
+                    text-align: center;
+                    font-size: 30px;
+                    margin: 0;
+                    padding-top: 15px;
+                    font-weight: 700;
+                    font-family: 'Source Sans Pro', sans-serif;
+                }
+                h6{
+                    font-size: 24px;
+                    text-align: center;
+                    color: rgb(233, 10, 10);
+                    margin: 0;
+                    padding-bottom: 8px;
+                    font-weight: 400;
+                    font-family: 'Signika', sans-serif;
+                }
+                .buy-1{
+                    text-align: center;
+                    font-size: 24px;
+                    color: #fff;
+                    width: 100%;
+                    padding: 15px;
+                    border: 0;
+                    outline: none;
+                    cursor: pointer;
+                    margin-top: 5px;
+                    border-bottom-right-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+                .card-list{
+                    list-style: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 0;
+                    margin-right: 26px;
+                    li{
+                        padding: 5px;
+                        .fa{
+                            font-size: 26px;
+                            transition: .4s;
+                        }
+                        .fa-solid{
+                            padding-top: 5px;
+                            font-size: 20px;
+                        }
+
+                        .checked{
+                            color: rgb(255, 146, 5);
+                        }
+
+                        .fa:hover{
+                            transform: scale(1.3);
+                            transition: .6s;
+                        } 
+                    }
+                }
+            } 
+        }
+        
+    }
+    .swiper-navBtn{
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+    .swiper-navBtn:hover{
+        color: #ffffff;
+    }
+    .swiper-navBtn::before,
+    .swiper-navBtn::after{
+        font-size: 35px;
+    }
+    .swiper-button-next{
+        right: 0;
+        border: none;
+        width: 10vw;
+        height: 700px;
+        top: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(248, 28, 28) 100%);
+        cursor: pointer;
+        z-index: 8;
+    }
+    .swiper-button-prev{
+        left: 0;
+        border: none;
+        width: 10vw;
+        height: 700px;
+        top: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgb(248, 28, 28) 100%);
+        cursor: pointer;
+        z-index: 8;
+    }
+    .swiper-pagination-bullet{
+        background-color: #ffffff;
+        opacity: 1;
+        bottom: 10px;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: #aaaaaa;
+    }
+  }
+  
+  .comment-img{
+    margin-right: 10px;
+    justify-content: space-between;
+  }
+  .comment-header{
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .comment-section{
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: rgb(29, 29, 29);
+    box-shadow: 2px 2px;
+    padding: 20px 30px;
+    border-radius: 7px;
+  }
+  

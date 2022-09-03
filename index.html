@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Signika:wght@300;500&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    
 </head>
 <body>
     <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -55,12 +56,12 @@
             </ul>
           </li>
         </ul>
-        <p class="text-light ms-4 me-2 mb-2 mb-lg-0">
-          Carrito 
-        <br> 
+        <a href="./carrito.html"><p class="text-light ms-4 me-2 mb-2 mb-lg-0">
+          <span class="text-danger fw-bold">Carrito</span> 
+          <br> 
           P/ <span id="precioTotal"></span> ARS$
-        </p>
-        <img src="./assets/img/carrito.png" class=" " alt="" height="40px" width="40px">
+        </p></a>
+        <a href="./pags/carrito.html"><img src="../assets/img/carrito.png" class=" " alt="" height="40px" width="40px"></a>
       </div>
     </div>
   </nav>
@@ -103,8 +104,8 @@
     -----------------------------------------------------------------------INTRO-------------------------------------------------------------------------------------------------->
 
   <section class="w-50 mx-auto text-center pt-5 pb-5" id="intro">
-    <h1 class="p-3 pt-5 fs-2 fw-bold border-top border-3 border-secondary text-dark">Tu <span class="text-danger">Tienda Online</span> para encontrar tus juegos favoritos al mejor precio.</h1>
-    <p class="p-3 pb-5 fs-4 fw-bold border-bottom border-3 border-secondary text-dark" ><span class="text-danger">eGameShop</span> es la mejor opcion de la actualidad.</p>
+    <h1 class="p-3 pt-5 fs-2 fw-bold border-top border-1 border-secondary text-dark">Tu <span class="text-danger">Tienda Online</span> para encontrar tus juegos favoritos al mejor precio.</h1>
+    <p class="p-3 pb-5 fs-4 fw-bold border-bottom border-1 border-secondary text-dark" ><span class="text-danger">eGameShop</span> es la mejor opcion de la actualidad.</p>
   </section>
 
   <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -113,160 +114,164 @@
     <header>
       <div class="shop-intro">
         <h3 class="pt-5"><span class="text-danger fw-bold">Novedades Destacadas</span></h3>
-        <p class="fs-6 fw-bold"><span class="text-dark">Los juegos mas populares del año al alcance de tu mano.</span></p>
         <button type="button" class="btn btn-danger"><a class="text-light" href="./pags/tienda.html">Mostrar Mas</a></button>
+        <p class="fs-6 fw-bold"><span class="text-dark">Los juegos mas populares del año al alcance de tu mano.</span></p>
       </div>
     </header>
     <section class="text-start ps-5 pt-2 p-5" >
-      <main class="product-container" id="trending-items">
-        <button class="pre-btn"><img src="assets/img/arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="assets/img/arrow.png" alt=""></button>
-        <div class="section">
-          <div class="content">
-            <img src="./assets/img/readyornot.jpg" alt="readyornot">
-            <h3 class="card-title pb-2" id="title-product">Ready or Not</h3>
-            <h6>899 ARS$</h6>
-            <ul class="card-list">
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star"></i></li>
-            </ul>
-            <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
-          </div>
-          <div class="content">
-            <img src="./assets/img/revillage.jpg" alt="revillage">
-            <h3 class="card-title pb-2" id="title-product">Resident Evil<br>Village</h3>
-            <h6>2.299 ARS$</h6>
-            <ul class="card-list">
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-            </ul>
-            <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
-          </div>
-          <div class="content">
-            <img src="./assets/img/dyinglight2.jpg" alt="dyinglight2">
-            <h3 class="card-title pb-2" id="title-product">Dying Light 2</h3>
-            <h6>1.920 ARS$</h6>
-            <ul class="card-list">
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star"></i></li>
-              <li><i class="fa fa-star"></i></li>
-            </ul>
-            <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
-          </div>
-          <div class="content">
-            <img src="./assets/img/eldenring.jpg" alt="eldenring">
-            <h3 class="card-title pb-2" id="title-product">Elden Ring</h3>
-            <h6>4.000 ARS$</h6>
-            <ul class="card-list">
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-              <li><i class="fa fa-star checked"></i></li>
-            </ul>
-            <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
-          </div>
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                      <img src="./assets/img/readyornot.jpg" alt="readyornot">
+                      <h3 class="card-title pb-2" id="title-product">Ready or Not</h3>
+                      <h6>899 ARS$</h6>
+                      <ul class="card-list">
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                      <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
+                    </div>
+                    <div class="card swiper-slide">
+                      <img src="./assets/img/eldenring.jpg" alt="eldenring">
+                      <h3 class="card-title pb-2" id="title-product">Elden Ring</h3>
+                      <h6>4.000 ARS$</h6>
+                      <ul class="card-list">
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                      </ul>
+                      <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
+                    </div>
+                    <div class="card swiper-slide">
+                      <img src="./assets/img/revillage.jpg" alt="revillage">
+                      <h3 class="card-title pb-2" id="title-product">Resident Evil Village</h3>
+                      <h6>2.299 ARS$</h6>
+                      <ul class="card-list">
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                      </ul>
+                      <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
+                    </div>
+                    <div class="card swiper-slide">
+                      <img src="./assets/img/dyinglight2.jpg" alt="dyinglight2">
+                      <h3 class="card-title pb-2" id="title-product">Dying Light 2</h3>
+                      <h6>1.920 ARS$</h6>
+                      <ul class="card-list">
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                      <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
         </div>
-      </main>
-  </section>
-  
+    </section>
+    
 
-  <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    -----------------------------------------------------------------------OFFERT-IMG-------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      -----------------------------------------------------------------------OFFERT-IMG-------------------------------------------------------------------------------------------------->
 
-  <div class="text-center">
-    <a href="./pags/tienda.html"><img src="./assets/img/offertmenu.jpg" alt="oferta" class="offert-menu"></a>
-  </div>
+    <div class="text-center">
+      <a href="./pags/tienda.html"><img src="./assets/img/offertmenu.jpg" alt="oferta" class="offert-menu"></a>
+    </div>
 
-  <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    -----------------------------------------------------------------------UPCOMING-GAMES-------------------------------------------------------------------------------------------------->
-  
-  <header>
-    <div class="shop-intro">
-      <h3 class="pt-5"><span class="text-danger fw-bold">Proximos Lanzamientos</span></h3>
-      <p class="fs-6 fw-bold"><span class="text-dark">Los proximos juegos mas esperados del mercado disponibles para pre-comprar.</span></p>
-      <button type="button" class="btn btn-danger"><a class="text-light" href="./pags/tienda.html">Mostrar Mas</a></button>
-    </div> 
-  </header>
-  <section class="text-start ps-5 pt-2 p-5">
-    <main class="product-container" id="next-games">
-      <button class="pre-btn"><img src="assets/img/arrow.png" alt=""></button>
-      <button class="nxt-btn"><img src="assets/img/arrow.png" alt=""></button>
-      <div class="section">
-        <div class="content">
-          <img src="./assets/img/forspoken.jpg" alt="forspoken">
-          <h3 class="card-title pb-2" id="title-forspoken">Forspoken</h3>
-          <h6 id="precio-forspoken">6.899 ARS$</h6>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-1"></i></li>
-            <li><i class="fa-solid fa-1"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-1"></i></li>
-            <li><i class="fa-solid fa-0"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-          </ul>
-          <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
-        </div>
-        <div class="content">
-          <img src="./assets/img/gothamknights.jpg" alt="gothknights">
-          <h3 class="card-title pb-2" id="title-product">Gotham <br> Knights</h3>
-          <h6>4,999 ARS$</h6>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-5"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-1"></i></li>
-            <li><i class="fa-solid fa-0"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-          </ul>
-          <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
-        </div>
-        <div class="content">
-          <img src="./assets/img/codmw2.jpg" alt="codmw2">
-          <h3 class="card-title pb-2" id="title-cod">Call of Duty <br> MW II</h3>
-          <h6>6.780 ARS$</h6>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-8"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-1"></i></li>
-            <li><i class="fa-solid fa-0"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-          </ul>
-          <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
-        </div>
-        <div class="content">
-          <img src="./assets/img/stalker2.jpg" alt="stalker2">
-          <h3 class="card-title pb-2" id="title-stalker">S.T.A.L.K.E.R 2</h3>
-          <h6>2.899 ARS$</h6>
-          <ul class="card-list">
-            <li><i class="fa-solid fa-0"></i></li>
-            <li><i class="fa-solid fa-8"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-1"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-minus"></i></li>
-            <li><i class="fa-solid fa-2"></i></li>
-            <li><i class="fa-solid fa-3"></i></li>
-          </ul>
-          <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
-        </div>
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      -----------------------------------------------------------------------UPCOMING-GAMES-------------------------------------------------------------------------------------------------->
+    
+    <header>
+      <div class="shop-intro">
+        <h3 class="pt-5"><span class="text-danger fw-bold">Proximos Lanzamientos</span></h3>
+        <button type="button" class="btn btn-danger"><a class="text-light" href="./pags/tienda.html">Mostrar Mas</a></button>
+        <p class="fs-6 fw-bold"><span class="text-dark">Los proximos juegos mas esperados del mercado disponibles para pre-comprar.</span></p>
+      </div> 
+    </header>
+    <section class="text-start ps-5 pt-2 p-5" >
+      <div class="slide-container swiper">
+          <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper">
+                  <div class="card swiper-slide">
+                    <img src="./assets/img/forspoken.jpg" alt="forspoken">
+                    <h3 class="card-title pb-2" id="title-forspoken">Forspoken</h3>
+                    <h6 id="precio-forspoken">6.899 ARS$</h6>
+                    <ul class="card-list">
+                      <li><i class="fa-solid fa-1"></i></li>
+                      <li><i class="fa-solid fa-1"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-1"></i></li>
+                      <li><i class="fa-solid fa-0"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                    </ul>
+                    <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
+                  </div>
+                  <div class="card swiper-slide">
+                    <img src="./assets/img/gothamknights.jpg" alt="gothknights">
+                    <h3 class="card-title pb-2" id="title-product">Gotham <br> Knights</h3>
+                    <h6>4,999 ARS$</h6>
+                    <ul class="card-list">
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-5"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-1"></i></li>
+                      <li><i class="fa-solid fa-0"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                    </ul>
+                    <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
+                  </div>
+                  <div class="card swiper-slide">
+                    <img src="./assets/img/stalker2.jpg" alt="stalker2">
+                    <h3 class="card-title pb-2" id="title-stalker">S.T.A.L.K.E.R 2</h3>
+                    <h6>2.899 ARS$</h6>
+                    <ul class="card-list">
+                      <li><i class="fa-solid fa-0"></i></li>
+                      <li><i class="fa-solid fa-8"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-1"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-3"></i></li>
+                    </ul>
+                    <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
+                  </div>
+                  <div class="card swiper-slide">
+                    <img src="./assets/img/codmw2.jpg" alt="codmw2">
+                    <h3 class="card-title pb-2" id="title-cod">Call of Duty <br> MW II</h3>
+                    <h6>6.780 ARS$</h6>
+                    <ul class="card-list">
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-8"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-1"></i></li>
+                      <li><i class="fa-solid fa-0"></i></li>
+                      <li><i class="fa-solid fa-minus"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                      <li><i class="fa-solid fa-2"></i></li>
+                    </ul>
+                    <button type="button" class="buy-1 btn btn-danger buy" id="buybtn">PRECOMPRAR</button>
+                  </div> 
+              </div>
+          </div>
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
       </div>
-    </main>
   </section>
   
   <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -275,6 +280,16 @@
   <div class="text-center">
     <a href="./pags/tienda.html"><img src="./assets/img/offertmenu2.jpg" alt="oferta-2" class="offert-menus border-bottom border-3 border-secondary"></a>
   </div>  
+
+  <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------COMMENT-SECTION-------------------------------------------------------------------------------------------------->
+  
+  <div class="comment-header pb-1">
+    <h3 class="text-danger fw-bold pb-2 border-1 border-bottom border-dark">Reseñas de Clientes</h3>
+  </div>  
+  <div class="comment-section" id="commenContainer">
+
+  </div>
 
   <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------FOOTER-------------------------------------------------------------------------------------------------->
@@ -314,8 +329,50 @@
   <script src="https://kit.fontawesome.com/3ac3391d4b.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/index.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
+  
+    const swiper = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    loopedSlidesLimit: true,
+    slideToClickedSlide: false,
+    simulateTouch: false,
+    centerSlide: 'false',
+    fade: 'false',
+    grabCursor: 'true',
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  </script>
+  <script>
+    let url = 'https://jsonplaceholder.typicode.com/post/1/comments'
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => mostrarComments(data))
+        .catch(error => console.log(error))
+
+    function mostrarComments(comments){
+    comments.forEach((comment)=>{
+        mostrarComment(comment);
+    })
+    }
+
+    function mostrarComment(comment){
+        const div = document.getElementById("commenContainer");
+        const nodoComment = document.createElement("div")
+        nodoComment.innerHTML=`<h5 class="text-danger"><img class="comment-img" src="./assets/img/userpic.png" width="25" height="25" alt="default-pic-user">${comment.email}</h5>
+                              <p class="text-light pb-4 border-bottom">${comment.body}.</p> `
+        div.appendChild(nodoComment);
+    }
+
+  </script>
 
 </body>
 </html>
