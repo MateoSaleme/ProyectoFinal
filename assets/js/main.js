@@ -30,20 +30,23 @@ const listaProd = [
     new Producto(14, "Elden Ring", 6500, "rol", "../assets/img/eldenringshop.jpg"),
     new Producto(15, "The Elder Scrolls V: Skyrim", 2000, "rol", "../assets/img/skyrimshop.jpg"),
     new Producto(16, "Ready Or Not", 899, "accion", "../assets/img/readyornotshop.jpg"),
+    new Producto(17, "Resident Evil Village", 2299, "accion", "../assets/img/revillage.jpg"),
+    new Producto(18, "Dying light 2", 1920, "accion", "../assets/img/dyinglight2.jpg")
 ]
 
 //cargando los productos en html
 
-const cargarProd = (productos)=>{
-    
-    const divProd=document.getElementById("productos")
-    divProd.innerHTML="";
+const cargarProd2 = (productos)=>{
+    localStorage.setItem("prod", JSON.stringify(listaProd));
+    const divProd=document.getElementById("productos");
+    divProd.innerHTML=""
     productos.forEach((producto)=>{
-        divProd.innerHTML+=`
+        if (producto.id < 17) {
+            divProd.innerHTML+=`
         <div class="product-item">
-            <img src=${producto.imagen} alt="">
+            <img id="itemimagen${producto.id}" src=${producto.imagen} alt="">
             <p class="text-danger" >Cod.#<span id="itemId${producto.id}">${producto.id}</span></p>
-            <h6>${producto.nombre}</h6>
+            <h6 id="itemnombre${producto.id}">${producto.nombre}</h6>
             <p class="text-danger" id="itemPrecio${producto.id}">${producto.precio}</p>
             <div id="addToCarritoBtn" class="cant-btn text-center">
                 <button type="button" class="btn btn-secondary mb-1 mt-1" id="restarProd${producto.id}">-</button>
@@ -52,9 +55,14 @@ const cargarProd = (productos)=>{
                 <button type="button" class="buy-2 btn btn-danger buy" id="buybtn${producto.id}">COMPRAR</button>
             </div>
         </div>`
-    })};
 
-cargarProd(listaProd);
+        }
+        
+    })
+    
+};
+
+cargarProd2(listaProd);
 
 //filtrado y busqueda de productos
 
@@ -79,10 +87,12 @@ function filtrarProd(inputProd){
 //carrito de compras
 
 class ProdCarro {
-    constructor(id,cantidad,precio) {
+    constructor(id,cantidad,precio,nombre,imagen) {
         this.id = id;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.nombre = nombre;
+        this.imagen = imagen;
     }
 }
 
@@ -118,23 +128,25 @@ for (let i = 1; i <= listaProd.length; i++) {
         let id = document.getElementById("itemId"+i).textContent;
         let cantidad = document.getElementById("prodNr"+i).textContent;
         let precio = document.getElementById("itemPrecio"+i).textContent;
+        let nombre = document.getElementById("itemnombre"+i).textContent;
+        let imagen = document.getElementById("itemimagen"+i).getAttribute("src");
         e.preventDefault();
-        agregarCarrito(id,cantidad,precio);
+        agregarCarrito(id,cantidad,precio,nombre,imagen);
         mostrarPrecio();
     });
 };
 
-function agregarCarrito(id,cantidad,precio) {
+function agregarCarrito(id,cantidad,precio,nombre,imagen) {
     let prodencarrito = carrito.find(producto=>producto.id==id)
-    console.log(prodencarrito, id, cantidad, precio)
+    console.log(prodencarrito, id, cantidad, precio,nombre,cantidad)
     if(prodencarrito){
         prodencarrito.cantidad=Number(cantidad)+Number(prodencarrito.cantidad);
     }
     else{
-        carrito.push(new ProdCarro(id,cantidad,precio));
+        carrito.push(new ProdCarro(id,cantidad,precio,nombre,imagen));
     }
     console.log(carrito);
-    localStorage.setItem("carrito", JSON.stringify(carrito))
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function mostrarPrecio(){
