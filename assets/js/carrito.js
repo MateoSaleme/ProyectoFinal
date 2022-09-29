@@ -9,7 +9,7 @@ if (localStorage.getItem("carrito")===null) {
     });
     document.getElementById("precioTotal").textContent = preciototal;
     
-     const cargarProd = (localstoragearr)=>{
+     let cargarProd = (localstoragearr)=>{
         let preciototalprod=0;
         const divProd=document.getElementById("carro")
         divProd.innerHTML="";
